@@ -1,3 +1,5 @@
+**Day 1:**
+
 Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
 1.	Opened the flow.tcl in vim   
@@ -42,5 +44,5 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 17. Opened the timing file checked it in vim ![image](https://github.com/user-attachments/assets/a541f4df-fb56-498d-84a7-79f41a972672) ![image](https://github.com/user-attachments/assets/d8e19a61-0a7f-4438-b2c7-044a9beec05f)
 
 
-  
+**Day 2:**  
 
