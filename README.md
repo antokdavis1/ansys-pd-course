@@ -2,7 +2,8 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
 1.	Opened the flow.tcl in vim
   
- 
+ ![Picture1](https://github.com/user-attachments/assets/60418a76-bdcd-4bb6-ab9e-0e564d94a9e2)
+
 3.	Opened the working folder & opened the tech file & checked in vim
  
  
