@@ -3,7 +3,8 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 1.	Opened the flow.tcl in vim   
  ![Picture1](https://github.com/user-attachments/assets/60418a76-bdcd-4bb6-ab9e-0e564d94a9e2)
 
-2. Opened the working folder & opened the tech file & checked in vim
+2. Opened the working folder & opened the tech file & checked in vim ![image](https://github.com/user-attachments/assets/3a6006d5-f3e8-4466-ab70-82e1b63f70d7)
+
 3. Ran the commands below in with docker in the working directory
 4. Opened the working directory designs
 5. Opened the config.tcl in vim & checked the period other items
