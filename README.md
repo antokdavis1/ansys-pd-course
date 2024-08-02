@@ -321,6 +321,25 @@ iv.	The values are reset and ran the run_floorplan again & verified the pin mapp
 
 ![image](https://github.com/user-attachments/assets/b20d4505-9e1f-4d61-9ff3-2a9504ff07da)
 
+**b.	SPICE deck creation for COMS inverter**
+
+i.	Node is required to define a component in spice. A component is placed between nodes.
+
+**c.	SPICE simulation lab for CMOS**
+
+i.	Voltage transfer characteristics are obtained for PMOS same size as NMOS & PMOS 2.5 times the size of the NMOS and compared the VTC to see that the one with PMOS 2.5 times the size of NMOS gives the VTC 50% line at half of VDD (2.5V)
+
+**d.	Switching Treshold Vm**
+
+i.	Static behavior of the CMOS inverter: Switching threshold is the voltage at which the inverter switches, Vm is the point where the Vin=Vout. 
+
+ii.	 Short circuit current flows in the region near Vm, both PMOS & NMOS are in saturation
+
+**e.	Static & dynamic simulation of CMOS inverter**
+
+i.	Transient simulations are done with inverter with a pulse to obtain the rise & fall delay for 50% of the VDD 
+
+ii.	Derivation of Vm can be analytically calculated as below:
 
 
 
