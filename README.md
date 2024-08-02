@@ -341,6 +341,27 @@ i.	Transient simulations are done with inverter with a pulse to obtain the rise 
 
 ii.	Derivation of Vm can be analytically calculated as below:
 
+![image](https://github.com/user-attachments/assets/d7af2cfb-fc83-4391-b1b2-0bc8e88052e7)
+
+iii.	For Wp/Lp = Wn/Ln, we got rise delay = 148ps, fall delay = 71ps, Vm = 0.99V
+
+f.	Lab steps to git clone vsdstdcelldesign
+
+i.	Downloaded the vsdstdcelldesign to openlane working folder
+
+![image](https://github.com/user-attachments/assets/8cc640de-918f-47da-9a75-4de8b0b2499a)
+
+ii.	Copied the tech file to the vsdstdcelldesign folder 
+
+![image](https://github.com/user-attachments/assets/74adfff6-9be8-4091-84fc-ee9db504ca89)
+
+iii.	Opened the inverter in magic 
+
+![image](https://github.com/user-attachments/assets/4095c38d-71b9-4334-a5ab-51b173dcc951)
+
+![image](https://github.com/user-attachments/assets/17cdac63-2be4-4835-b732-57c1985e30f8)
+
+
 
 
 
