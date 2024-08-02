@@ -46,3 +46,30 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
 **Day 2:**  
 
+1.	Chip floor planning considerations
+a.	Utilization factor & aspect ratio
+  i.	Core – inner most area, die – outer area
+  ii.	Std cell – 1 unit X 1 unit
+  iii.	All logic cells are converted into rectangular boxes based on the dimensions of the cells & calculate the area occupied by the netlist on a silicon wafer (excluding the wiring area & buffer area requirements)
+  iv.	utilization factor is Area occupied by the netlist/total core area of the core, usually this is 50%-60% utilization factor, the additional area is used for buffers. 
+  v.	aspect ratio = Height/Width, 1 = square others rectangle
+b.	concept of preplaced cells
+  i.	An example of utilization factor =0.25
+  ii.	Preplaced cells – an example with a section of combinational logic designed and reused is discussed as an example. It is also divided into two sections (cut1 & cut2) and made two blocks out of it (Block 1 & Block 2). The blocks once implemented can be reused in same or different designs as black boxes later. Each block can be treated as an IP or a module also. Instantiating the same block multiple times in the same design is also possible. Examples of IP include Memory, Clock gating cells, comparator, Mux etc., can be implemented once and can be re-used or instantiated later as a black box modules. The placement of these preplaced cells is fixed in the early design itself and this initial arrangement of these IP’s in a chip is known as Floorplanning. This is done before the automated place & routing. 
+c.	Decaps
+  i.	Block a, b, and c are preplaced cells in an example and the requirement for decaps are discussed. Decaps are important to reduce the ground bounce. 
+  ii.	Supply voltage droop can cause the logic go into undefined regions. In noise margin, if the logic 1 has to be within Voh & Vih and logic 0 voltage has to be within Vil & Vol
+  iii.	Decaps reduce the voltage drop caused due to high frequency switching of the cells by providing the fast charge near the cells reducing the voltage droop & ground bounce. 
+d.	Power Planning
+  i.	A 16 bit bus example is discussed to explain the ground bounce & voltage droop issues
+  ii.	To avoid these issues, power is routed as a grid for VDD & VSS
+e.	Pin placement & logical cell blockage
+  i.	Connectivity information is defined in netlist & coded in VHDL/verilog
+  ii.	The area between the core and die is filled with IO pins
+  iii.	Front end team defines the netlist connectivity using VHDL/Verilog, back end team defines the placement of the pin placement. Usually left (input pins), right (output pins), but not a fixed rule, top and bottom can be used for input and output also.
+  iv.	The pin blocks are bigger than the normal IO pins to make sure that they have the least resistance path
+  v.	Logical cell placement blockage is added to avoid the automated placement & routing tool not to place any cells there
+  vi.	Now the floorplan is ready for placement & routing
+f.	Floor planning using OpenLane
+ i.	The stage after synthesis is floor planning
+ ii.	
