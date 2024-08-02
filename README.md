@@ -1,4 +1,4 @@
-#Day 1:#
+**Day 1:**
 
 Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
