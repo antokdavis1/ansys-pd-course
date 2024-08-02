@@ -101,46 +101,63 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
  ii.	Standard cells placement happens in placement stage
 
 iii.	Went inside the folder for configuration and checked the README.md  
-![image](https://github.com/user-attachments/assets/cb0f5453-25f1-4547-8b70-60b78c9d6e80) ![image](https://github.com/user-attachments/assets/652fd8b3-ff25-4894-83c2-b8fcf0c93902) ![image](https://github.com/user-attachments/assets/e21865b8-1544-44dd-9aca-90976d0d2f0f)
+
+![image](https://github.com/user-attachments/assets/cb0f5453-25f1-4547-8b70-60b78c9d6e80) 
+![image](https://github.com/user-attachments/assets/652fd8b3-ff25-4894-83c2-b8fcf0c93902) ![image](https://github.com/user-attachments/assets/e21865b8-1544-44dd-9aca-90976d0d2f0f)
 
 iv.	Opened the floorplan.tcl file to check the settings 
+
 ![image](https://github.com/user-attachments/assets/72bd46cf-6542-4e9e-9d80-1e3229ea3dc0)
 
 v.	Opened the design folder and checked the config.tcl file 
+
 ![image](https://github.com/user-attachments/assets/7498fa9c-dd49-47b8-ace2-de369af60d7f)
 
 vi.	Opened the design specifi config file, 
+
 ![image](https://github.com/user-attachments/assets/ed4b3242-8d8f-43d6-9894-75701a64535e)
 
 vii.	In OpenLane flow the vertical & horizontal metal layers are one more than what we specify
 
 viii.	Ran the command run_floorplan 
+
 ![image](https://github.com/user-attachments/assets/be8054a0-ef85-45d5-b23c-ffc9767798fb) 
 ![image](https://github.com/user-attachments/assets/31c6dabb-1857-4f50-a34f-3cdc15ce0a41)
 
 ix.	Opend the def file after floor plan 
+
 ![image](https://github.com/user-attachments/assets/cc4aee73-be27-4ce9-a44a-dd785c8b2302) 
 ![image](https://github.com/user-attachments/assets/d0262522-4e3d-49f4-bdb5-957b48d7a844)
 
 x.	Opened the def file in magic as shown in the figure below 
+
 ![image](https://github.com/user-attachments/assets/9c153e4e-5c07-4971-8ccd-f9ee1f546d70) 
 ![image](https://github.com/user-attachments/assets/d1a9e194-2978-4362-ae1a-42414a668ad6)
 
-xi.	Zoomed in using left click, right click, then z. Used v to go back ![image](https://github.com/user-attachments/assets/55e9dcf0-f640-4532-b4a6-3fcb6c7b47ff) ![image](https://github.com/user-attachments/assets/dffeac63-1123-48d7-ac6c-5aa84e245d46) ![image](https://github.com/user-attachments/assets/9505c18c-752c-4f6f-8d9c-4137c206acc2)
+xi.	Zoomed in using left click, right click, then z. Used v to go back 
+
+![image](https://github.com/user-attachments/assets/55e9dcf0-f640-4532-b4a6-3fcb6c7b47ff) 
+![image](https://github.com/user-attachments/assets/dffeac63-1123-48d7-ac6c-5aa84e245d46) 
+![image](https://github.com/user-attachments/assets/9505c18c-752c-4f6f-8d9c-4137c206acc2)
 
 xii.	Kept the mouse on one of the IO pins and pressed s and typed what in the tcl command window & found that the IO pin is in metal3 layer. 
+
 ![image](https://github.com/user-attachments/assets/858e282a-9945-49e2-b452-c0af3a99e7d1)
 
 xiii.	Went to the bottom of the die and selected a bottom IO pin and found that it is connected to metal2 
+
 ![image](https://github.com/user-attachments/assets/79f0e56c-4646-4281-bbca-ca9193f6c11b)
 
 xiv.	Selected one of the endcap cells checked the details 
+
 ![image](https://github.com/user-attachments/assets/d7cc4a9f-ba3d-4297-b1a2-6ef66ad1976a)
 
 xv.	Checked a tapcell which is used for preventing latchup issues. They connect the p-substrate to VSS & nwell to VDD. 
+
 ![image](https://github.com/user-attachments/assets/68640685-7de8-454f-b098-bb617968c820)
 
 xvi.	Checked the standard cells placed at the bottom left corner of the die 
+
 ![image](https://github.com/user-attachments/assets/01bd129c-bba9-4bde-8e29-0a823cf9a32e)
 
 
