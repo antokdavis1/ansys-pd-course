@@ -217,6 +217,52 @@ vii.	Power ground generation will be after CTS
 
 **3.	Cell Design & Characterization Flow**
 
+a.	Inputs for cell design flow
+
+i.	Library is where the information related to standard cells, macros/IPs, decap cells are present
+
+ii.	Biggest buff will have highest drive strength & higher threshold voltage which in turn determines the speed of the cell. Bigger threshold voltage cell will take more time to switch. High Vt (hVt) low Vt (lVt) is based on the threshold voltage.
+
+iii.	Same size cells can have different Vts.
+
+iv.	Cell design flow is divided into 3 parts: 1. Inputs 2. Design steps 3. Outputs
+
+v.	Inputs (PDK, DRC& LVS rules, spice models, library & user-defined specifications)
+
+vi.	Tech file contains all the foundry related rules
+
+vii.	Equations for fermipotential, threshold voltage & IdVDS equation discussed.
+
+**b.	Circuit design specification**
+
+i.	Cell height is defined as the distance between Vdd & Vss line. The cell designers need to make sure that the cell height is exactly fit into the Vdd & Vss distance.
+
+ii.	Cell width depends on the timing information. 
+
+iii.	Metal layers to connect a cell is defined by the user
+
+iv.	Pin location requirements also have to be taken into account by the cell designer
+
+v.	Design steps are three: 1. Ckt design 2. Layout design 3. Characterization
+
+vi.	Ckt Design: Depending on the drive strength, the NMOS & PMOS needs to be sized. It also depends on the technology node too?
+
+**c.	Layout Design: - characterization **
+
+i.	After the PMOS & NMOS network graph is obtained, make an euler’s path. Euler’s path is a path that is traced only once. Place the transistors based on the euler’s path and draw a stick diagram. Poly is vertically placed for each gate input that used in the circuit. The remaining connections are done based on the circuit. 
+
+ii.	Output: CDL, GDSII file, LEF, Extracted parasitics (.cir)  - Timing, power .libs, noise, function
+
+**d.	Typical characterization flow**
+
+i.	Inputs available: subcircuit models, ckt connections, models for NMOS & PMOS
+
+ii.	Flow: 1. Read in the models 2. Read the extracted spice netlist 3. Recognize the behavior of the buffer 4. Read the subcircuit of the inverter 5. Attach the necessary power sources 6. Apply the stimulus 7. Necessary output/load capacitances (max to min range) 8. Provide the necessary simulation commands (.tran, .dc etc.,) 
+
+iii.	Next step is feed in all the 1-8 inputs as a characterization file in Guna which gives the output models – timing, noise, power .libs, function
+
+**4.	Timing Characterization**
+
 
 
 
