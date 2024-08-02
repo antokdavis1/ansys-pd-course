@@ -198,6 +198,14 @@ iii.	Legalization: Cells should be exactly inside the rows, no overlap on other 
 
 iv.	The command run_placement is performed. Wire length reduction is the focus here. 
 
+![image](https://github.com/user-attachments/assets/a91c7011-ee9c-449a-a5df-307084afde9e)
+![image](https://github.com/user-attachments/assets/8cdc3978-9687-437f-9bbe-e88c4724fb46)
+![image](https://github.com/user-attachments/assets/44a825bc-03e9-43ad-8b28-1fa24c2db36f)
+![image](https://github.com/user-attachments/assets/3010019e-1862-4d5f-94c4-f8167fe96b9a)
+
+
+
+
 
 
 
