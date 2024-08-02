@@ -160,6 +160,43 @@ xvi.	Checked the standard cells placed at the bottom left corner of the die
 
 ![image](https://github.com/user-attachments/assets/01bd129c-bba9-4bde-8e29-0a823cf9a32e)
 
+**2.	Library Binding & Placement**
+
+**a.	Netlist binding & initial place design**
+
+i.	Library contains the information on the size & timing of the standard cells & IPs/macros
+
+ii.	Same standard cells can have multiple sizes based on the drive strength of the cells
+
+iii.	If we place the cells very close to the others (abutment), the cell delay is minimal, otherwise, we may have to use buffers if the distance between the two cells is big.
+
+**b.	Optimize placement using estimated wire length & capacitance**
+
+i.	So, if two cells are far away from each other, the wire resistance & capacitance is very high causing very high RC delay
+
+ii.	Slew depends upon the capacitance value & high capacitance values will produce bad slew
+
+**c.	Final Optimization**
+
+i.	Abutment is preferred for critical paths since the delay between the cells is negligible and the circuit can work extremely fast.
+
+**d.	Need for libraries & characterization**
+
+i.	Library characterization & modeling: Logic synthesis -> Floorplanning -> Placement -> CTS -> Routing -> STA 
+
+ii.	One thing is common in all these stages – gates/cells
+
+iii.	In each of the ASIC design flow needs to have the library information on the cells
+
+**e.	Congestion Aware placement using RePIAce**
+
+i.	After floorplan, next stage is placement stage
+
+ii.	Two sub-stages for placement: 1. Global placement (coarse & no legalization) 2. Detailed placement (legalization happens in detailed placement)
+
+iii.	Legalization: Cells should be exactly inside the rows, no overlap on other cells, should be abutted, important from timing point of view
+
+iv.	The command run_placement is performed. Wire length reduction is the focus here. 
 
 
 
