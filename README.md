@@ -296,7 +296,30 @@ iv.	Transition time: input slew = slew_high_rise_thr - slew_low_rise_thr & outpu
 
 **Day 3**
 
+**1.	Labs for ngSPICE simulation for CMOS:**
+   
+**a.	IO placer review:**
 
+i.	Set the FP_IO_MODE to 2  
+
+![image](https://github.com/user-attachments/assets/40492856-93d4-429a-aea6-e19b0761cfe6)
+
+ii.	Run the command run_floorplan  
+
+![image](https://github.com/user-attachments/assets/c578b771-53d5-4bca-8e29-75051f0ad74c)
+![image](https://github.com/user-attachments/assets/1d50686b-fed0-4b7f-b6fa-11d5bd6782d7)
+
+
+iii.	Opening def the pins are not equidistant anymore they are on top of other  
+
+![image](https://github.com/user-attachments/assets/32b544ab-9bd1-45e7-bb38-37905aea625d)
+
+
+iv.	The values are reset and ran the run_floorplan again & verified the pin mapping   
+
+![image](https://github.com/user-attachments/assets/1062e8a5-c475-470d-9d87-8810f18fdefc)
+
+![image](https://github.com/user-attachments/assets/b20d4505-9e1f-4d61-9ff3-2a9504ff07da)
 
 
 
