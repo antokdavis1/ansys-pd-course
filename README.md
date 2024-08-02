@@ -263,12 +263,38 @@ iii.	Next step is feed in all the 1-8 inputs as a characterization file in Guna 
 
 **4.	Timing Characterization**
 
+**a.	Timing threshold definitions**
+
+i.	slew_low_rise_thr – closer to low voltage and rising, typically 20% above
+
+ii.	slew_high_rise_thr – closer to the high voltage and rising, typically 20% to the high voltage
+
+iii.	slew_low_fall_thr – like above but falling
+
+iv.	slew_high_fall_thr - like above but falling
+
+v.	in_rise_thr – 50% (typical) of the input voltage rise step
+
+vi.	in_fall_thr – 50% of the input voltage fall step
+
+vii.	out_rise_thr – like that for output voltage
+
+viii.	out_fall_thr -  like that for output voltage
+
+ix.	To calculate the delay, 50% input to output can be used
+
+**b.	Propagation Delay & transition time**
+
+i.	Delay is out_*_thr – in_*_thr
+
+ii.	Wrong threshold points taken can produce wrong delay values, in some cases negative numbers which is simply not correct
+
+iii.	Even with proper choice of threshold, it is possible to see negative delays. For e.g., a long line with big capacitance and then a buffer can lead to negative delay
+
+iv.	Transition time: input slew = slew_high_rise_thr - slew_low_rise_thr & output slew = slew_high_fall_thr - slew_low_fall_thr
 
 
-
-
-
-
+**Day 3**
 
 
 
