@@ -203,6 +203,21 @@ iv.	The command run_placement is performed. Wire length reduction is the focus h
 ![image](https://github.com/user-attachments/assets/44a825bc-03e9-43ad-8b28-1fa24c2db36f)
 ![image](https://github.com/user-attachments/assets/3010019e-1862-4d5f-94c4-f8167fe96b9a)
 
+v.	Opened the def in magic 
+
+![image](https://github.com/user-attachments/assets/6ea9259d-bf41-48ee-80e1-a120883da4a5)
+![image](https://github.com/user-attachments/assets/d9424c7d-ebbf-4480-bab8-8f90052c5534)
+
+vi.	Tried select & what on couple of instances 
+
+![image](https://github.com/user-attachments/assets/b6541b08-684b-4e44-810a-23f3d9d009a2)
+
+vii.	Power ground generation will be after CTS
+
+
+**3.	Cell Design & Characterization Flow**
+
+
 
 
 
