@@ -370,6 +370,86 @@ iii.	Opened the inverter in magic
 
 
 
+**2.	SKY130_D3_SK2 - Inception of Layout CMOS fabrication process – 16 Mask process**
+   
+a.	SKY_L1 - Create Active regions 
+
+i.	P type, high resistivity 5 to 50 ohms meter?, doping level, 10^15 per cm^3, orientation 100, substrate doping should be less than well doping
+
+ii.	Each CMOS are in pockets isolated in p substrate
+
+iii.	On p substrate, 40nm SiO2, 80nm Si3N4, 1um photoresist, then mask1, uv light and then wash out the exposed areas, remove the mask1, exposed Si3N4 is etched off, now remove the photo resist (chemical etching) since the Si3N4 areas helps in growing the oxide layer on other areas, grow the SiO2 further in the oxidation furnace which produces exposed regions to grow isolation regions made by SiO2. This process of growing the field oxide is called LOCOS (local oxidation of silicon). The grown SiO2 regions are called Bird’s beak. Now etch out the Si3N4 using hot phosphoric acid. 
+
+**b.	Formation of nwell & pwell**
+
+i.	Nwell – pmos, pwell – nmos
+
+ii.	Photo resist is applied & mask2 is applied to expose the uv light on other regions. The mask is removed, and providing a region to make p-well. It is formed by Boron (p type material) ion implantation through the SiO2 region using ~200keV. Pwell is formed in the exposed regions under the SiO2. Ion implantation process damage the SiO2 regions and will be later repaired. 
+
+iii.	Similarly, nwell region are formed using Mask3. Phosphorous (n type material) is used for ion implantation & it is heavier than Boron. ~400keV is used for this.
+
+iv.	A Drive in furnace (high temperature – 1100 degree C for 4-6 hours) is used to increase the depth of the well regions to at least half of the P-substrate. This is called twin tub process. 
+
+**c.	Formation of Gate**
+
+i.	The threshold voltage & doping relationship is given by the fermi potential equation below 
+
+![image](https://github.com/user-attachments/assets/71e56f4b-0ce6-4f96-b02c-8b35933d2bfc)
+
+ii.	Threshold voltage is controlled by doping concentration (NA) & oxide capacitance
+
+iii.	Mask4 is used expose the pwell regions, now a low energy boron implantation (~60keV) is used to get thin layer of diffusion atoms at the surface just beneath the SiO2. 
+
+iv.	Mask5 is used to expose the nwell regions & repeat the similar process for n-type (Arsenic or Phosphorous) 
+
+v.	Now HF is used to chemically etch out the SiO2 and regrow a good high quality SiO2 (10nm) layer.
+
+vi.	Previous two steps decide the Vt of the transistors.
+
+vii.	~0.4um thick polysilicon layer is formed on top now.
+
+viii.	N type (As or P) ion implants on poly for low gate resistance 
+
+ix.	Mask6 is used to form gate mask, and the remaining sections are etched out to form the polysilicon gate
+
+d.	Lightly Doped Drain (LDD) formation
+
+i.	Mask7 & Mask8 are used for forming N- & P- diffusion
+
+ii.	LDD is required due to two reasons: 1. Hot electron effect 2. Short channel effect
+
+iii.	When the actual S or D is fabricated, the LDD region might get disrupted and we need to protect the LDD region. For this reason, we add spacers for this. SiO2 or Si3N4 (~0.1um) & use anisotropic plasma etching. The sidewall spacer helps to keep the LDD region between heavily doped D region & the N or P well regions getting P+ P- N for pmos & N+N-P for nmos drains
+
+e.	Source & Drain formation
+
+i.	This screen oxide to avoid channeling during implants
+
+ii.	Mask9 is used to make S & D of nmos As is used at 75keV
+
+iii.	This produces N+N- P N- N+ formation for nmos
+
+iv.	Mask10 is used to do the similar process for PMOS using Boron (50keV)
+
+v.	High temperature annealing (like 1000 degree C) in furnace is used to move the source & drain down further into the wells.
+
+f.	Local contact formation
+
+i.	Etch out the thin oxide in HF
+
+ii.	Now deposit Titanium on wafer through sputtering. Ti metal is hit with Argon gases which causes Ti will get sputtered/emitted out and get deposited into the substrate.
+
+iii.	Ti is deposited uniformly everywhere. Now the wafer is heated at about 650 to 700 degrees C in N2 ambient for 60 seconds. TiSi2 is a low resistant material that can be used for connectivity. Also TiN is formed due to the ambient N present, which is used for local connections. It has higher resistivity can be used for nmos & pmos drain connections. 
+
+iv.	Mask11 is used now to etch out the unwanted TiN using RCA cleaning. RCA solution is H2O:NH4OH:H2O2 = 5:1:1  
+
+g.	Higher level metal formation
+
+i.	Deposit a thick (1um) layer of SiO2 doped with P or B, (for protection against Na ions), & polish the surface. The polishing the surface is called as CMP (Chemical Mechanical Polishing)
+
+ii.	Mask12 is used to make connections to the higher metal layer. Drill holes to make connections. ~10nm TiN is deposited on top of it, since it is a good adhesion layer for SiO2 & it is also a barrier layer to protect the bottom layers. Then W is deposited on top of it. 
+
+iii.	Mask13 & 16 to drill holes for higher layers get the pins accessed at the top layer
+
 
 
 
