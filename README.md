@@ -450,6 +450,182 @@ ii.	Mask12 is used to make connections to the higher metal layer. Drill holes to
 
 iii.	Mask13 & 16 to drill holes for higher layers get the pins accessed at the top layer
 
+h.	SKY_L8 - Lab introduction to Sky130 basic layers layout and LEF using inverter
+
+i.	Opened the NOT gate layout in magic 
+
+![image](https://github.com/user-attachments/assets/cf2d253e-8169-4424-a835-1233209bceb6)
+
+ii.	Checked s and multiple s pressing & what to verify the nmos, pmos, poly, output Y, input A, ndiffusion, pdiffusion etc., 
+
+![image](https://github.com/user-attachments/assets/84bc58c9-6727-4b93-ba28-d6f5382dc0df)
+
+iii.	Checked the layout versus LEF file for a standard cell. The LEF file also called as frames does not have the connectivity information which helps in protecting the IP. 
+
+![image](https://github.com/user-attachments/assets/c0decb5c-b2db-4980-a07c-b1430f420d20)
+
+i.	SKY_L9 - Lab steps to create std cell layout and extract spice netlist
+
+i.	The locali is the local interconnect layer. It is highlighted in the image and checked with what 
+
+![image](https://github.com/user-attachments/assets/ae239b3a-174b-43b0-954a-104709f28b48)
+
+ii.	The nwell to local interconnect contact is marked as X in a box and highlighted in the image here 
+
+![image](https://github.com/user-attachments/assets/99e656f8-cc11-42a2-bdec-6491516e69a3)
+
+iii.	To run the simulations in ngSPICE, we need to extract the designs first. Which is done by the command extract all 
+
+![image](https://github.com/user-attachments/assets/a97f01c0-d82a-4a3a-9d83-543d766922f8)
+
+iv.	The above command extracted the design into sky130_inv.ext as shown here    
+
+![image](https://github.com/user-attachments/assets/72f71011-633f-4845-b5c5-8f673cb6b367)
+![image](https://github.com/user-attachments/assets/47e6e1da-bf12-481c-9c7a-c3e6587fa070)
+
+v.	If you do the ext2spice without the options cthresh 0 and rthresh 0, this is what we get 
+
+![image](https://github.com/user-attachments/assets/ae4a1d1a-4081-4307-b412-4e46a865528c)
+
+vi.	If we do the cthresh 0 and rthresh 0 options, and then we do the ext2spice, we get all the parasitics in the spice file 
+
+![image](https://github.com/user-attachments/assets/8cd61255-c781-4bbe-b1cf-838ea71f3635)
+
+**3.	SKY130_D3_SK3 - Sky130 Tech File Labs**
+
+a.	SKY_L1 - Lab steps to create final SPICE deck using Sky130 tech
+
+i.	Used the command “grid” to turn on grid and checked the grid size that needs to be added in the spice deck. 
+
+![image](https://github.com/user-attachments/assets/6c24fa6f-e8c8-4d98-b679-49c3d8cdecd4)
+
+ii.	Selected the smallest box and typed the command box to get the dimensions 
+
+![image](https://github.com/user-attachments/assets/bf1264e9-2f3e-404a-8633-e93ab3ec0657)
+
+iii.	The dimensions were set to 0.01u in the spice deck 
+
+![image](https://github.com/user-attachments/assets/6f07a718-29af-4210-8cc8-81eb53b42571)
+
+iv.	Checked the contents inside pshort.lib & nshort.lib 
+
+![image](https://github.com/user-attachments/assets/96d4d965-535c-4906-8f36-91449f2c8c4b)
+
+![image](https://github.com/user-attachments/assets/052543a4-e5fe-4332-921c-b10ae7556fa7)
+
+v.	Included the pshort.lib and nshort.lib in the spice deck 
+
+![image](https://github.com/user-attachments/assets/1aca3ef3-c8d9-446c-ae77-e323bfeb036d)
+
+vi.	The spice deck is updated as in the video 
+
+![image](https://github.com/user-attachments/assets/e4694352-9ba4-4588-982e-d701d33238c5)
+
+![image](https://github.com/user-attachments/assets/f07de577-a6f9-4b81-aebd-cd07ed6e4788)
+
+**b.	SKY_L2 - Lab steps to characterize inverter using sky130 model files**
+
+i.	Installed ngspice and ran ngspice sky_130_inv.spice 
+
+![image](https://github.com/user-attachments/assets/67752f93-e44e-4d05-be2e-e1df32dc2bf0)
+![image](https://github.com/user-attachments/assets/090d18b0-1c55-4a16-9a66-16448c085a37)
+![image](https://github.com/user-attachments/assets/78b7fb90-b4ca-46fc-bb9f-16411ec62564)
+
+ii.	Cload changed to 2fF & ran the ngspice to obtain the plots 
+
+![image](https://github.com/user-attachments/assets/162a1dc2-4e4a-4958-8adc-e5cc34b339e1)
+![image](https://github.com/user-attachments/assets/a6b8b932-9ab1-45f6-9140-b9746187880e)
+
+
+iii.	Printed the y, a, and time in the console
+
+![image](https://github.com/user-attachments/assets/1d524d9d-64ed-4411-bc7a-2fadab6d4017)
+
+iv.	Estimated the input’s 20% of 3.3V (0.66V) and calculated the time value of it as 2.18ns 
+
+![image](https://github.com/user-attachments/assets/2a60230f-794b-4329-9340-eea0eccf10b0)
+
+v.	Also found out the 80% of 3.3V (=2.64V) for the output & found out the time as 2.24684ns
+
+![image](https://github.com/user-attachments/assets/100df0ba-831b-497c-8996-d6d80928fbdf)
+
+vi.	The estimated rise transition delay here is 2.24684ns-2.18ns = 0.06684ns
+
+vii.	Similarly, the fall transition delay is calculated as 0.01546ns
+
+![image](https://github.com/user-attachments/assets/d21a7f66-4162-4525-851f-e2874fa476d9)
+
+viii.	Cell rise delay (50%) is 0.06162ns
+
+![image](https://github.com/user-attachments/assets/66198ace-9a9c-49b1-be63-3c8c867033c6)
+
+ix.	Analysis temp is 27 degreeC as shown in the figure 
+
+![image](https://github.com/user-attachments/assets/03ecc289-c25f-477c-9041-0a49cd5dcc72)
+
+c.	SKY_L3 - Lab introduction to Magic tool options and DRC rules
+
+i.	Open Circuit Design 
+
+![image](https://github.com/user-attachments/assets/2937be16-086c-49bf-8dab-638fc8fdf439)
+
+Magic VLSI (opencircuitdesign.com)
+
+![image](https://github.com/user-attachments/assets/3465c093-60ef-47d2-a101-1f20e5337d2f)
+
+
+iii.	CIF – Caltech Intermediate Format an old format similar to GDS
+
+iv.	Welcome to SkyWater SKY130 PDK’s documentation! — SkyWater SKY130 PDK 0.0.0-369-g7198cf6 documentation (skywater-pdk.readthedocs.io)
+
+![image](https://github.com/user-attachments/assets/b370d032-c828-4b44-b12e-d919be81495d)
+
+d.	SKY_L4 - Lab introduction to Sky130 pdk's and steps to download labs
+
+i.	Details to download the drc examples 
+
+![image](https://github.com/user-attachments/assets/a662b2bc-a224-4bdf-9be9-4001af58c06b)
+
+ii.	The files were unzipped tar xfz drc_tests.tgz 
+
+![image](https://github.com/user-attachments/assets/3dc4977d-b170-4ad8-baa9-ccc0ddc0a27a)
+
+iii.	Opened the file .magicrc in vim 
+
+![image](https://github.com/user-attachments/assets/3f8cb5fe-a5f9-4620-9889-7e29dadb1417)
+
+iv.	Opened magic -d XR 
+
+![image](https://github.com/user-attachments/assets/070c94fa-c4f4-44b9-9c61-026fcc696c75)
+
+e.	SKY_L5 - Lab introduction to Magic and steps to load Sky130 tech-rule
+
+i.	Opened met3.mag
+
+![image](https://github.com/user-attachments/assets/3374dbbe-719f-45d0-bfa8-8a53e1c6f484)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
