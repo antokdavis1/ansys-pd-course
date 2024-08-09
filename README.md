@@ -21,7 +21,7 @@ ttps://sourceforge.net/projects/ngspice/
 https://github.com/
 https://www.vlsisystemdesign.com/wp-content/uploads/2017/07/Introduction-to-Industrial-Physical-Design-Flow.pdf
 
-### <h5 id="header-5_3_4">Day 1:</h5>
+### <h5 id="header-5_3_4">Day 1</h5>
 
 Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
@@ -67,7 +67,7 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 17. Opened the timing file checked it in vim ![image](https://github.com/user-attachments/assets/a541f4df-fb56-498d-84a7-79f41a972672) ![image](https://github.com/user-attachments/assets/d8e19a61-0a7f-4438-b2c7-044a9beec05f)
 
 
-### <h5 id="header-5_3_4">Day 2:</h5> 
+### <h5 id="header-5_3_4">Day 2</h5> 
 
 **1.	Chip floor planning considerations**
 
