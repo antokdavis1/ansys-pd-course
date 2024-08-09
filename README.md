@@ -627,22 +627,89 @@ ii.	After opening the met3.mag click on the drc->DRC Update to see 10 DRC violat
 
 iii.	Opened the google website and link for m3 [Link](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#m3)
 
+![image](https://github.com/user-attachments/assets/e4f15898-f04b-4598-9e5a-b6134118f373)
 
+iv.	On the top right corner the y difference is shown less than 0.3u which is a DRC error in this case 
 
+![image](https://github.com/user-attachments/assets/0f82f388-fcf1-4134-bcda-ef508d8380c5)
 
+v.	Select a box (left and right click) then type drc why to find out the drc violation in that box
 
+![image](https://github.com/user-attachments/assets/2e94268f-06ca-4d32-8b50-b873401e16a5)
 
+vi.	Selected each in a box and tried drc why. Also tried partial selections & drc why. 
 
+![image](https://github.com/user-attachments/assets/484d1338-a9b6-4b11-a5b1-9f329b888d02)
 
+vii.	Adding a box and clicking on metal3 with middle mouse button or hover over the metal3 and press p button to get the rectangle shape added in metal3. Both methods tried, top metal3 box with middle button in mouse and bottom one with pressing p key.
 
+![image](https://github.com/user-attachments/assets/b5016a24-1124-49fc-bd14-6b373d12cb2b)
 
+viii.	Closed and opened the magic again and checked the drc again. Checked the via issue drc but via is not seen.
 
+![image](https://github.com/user-attachments/assets/88363933-39a3-464c-84a7-d78f8c6e6b02)
 
+ix.	With the command cif see VIA2 we can turn on the VIA2
 
+![image](https://github.com/user-attachments/assets/5e538837-4e41-4388-9ad9-f3f54fa22f3f)
 
+x.	Error in the distance between the metal is identified as shown here
 
+![image](https://github.com/user-attachments/assets/b6fc197d-6484-4808-8050-20c8635294d9)
 
+![image](https://github.com/user-attachments/assets/ce1c1314-166e-4ea7-8bee-43754defd78d)
 
+xi.	The command “feed clear” or “feedback clear” clears the earlier selections
+
+![image](https://github.com/user-attachments/assets/665e2350-b133-4723-bce1-e1ae132e9ebc)
+
+![image](https://github.com/user-attachments/assets/b4ea65db-4467-4aed-8e64-8ba2285002bb)
+
+xii.	The snap int command helps to make sure that the box selection is exactly selected at the edges
+
+![image](https://github.com/user-attachments/assets/d220e59b-006d-40ee-b296-34a8392c77a9)
+
+f.	SKY_L6 - Lab exercise to fix poly.9 error in Sky130 tech-file
+
+i.	Load the file poly using command “load poly”. The command window shows the files in the opened folder by ls 
+
+![image](https://github.com/user-attachments/assets/7a1bcb55-10d3-4c01-90f6-0e42dd9c8b71)
+
+ii.	Checked the website for the error poly.9 
+
+![image](https://github.com/user-attachments/assets/f55e9be0-3aeb-4408-94db-02bcf765a6b9)
+
+iii.	Checked the spacing between the poly & npolyres. Actually this is a drc violation however, it is not shown here. The reason could be that the poly.9 rule is not added to the tech file. Our next step is to update the tech file with this rule.
+
+![image](https://github.com/user-attachments/assets/449e3a49-8203-4bf6-8ee5-46875f953e68)
+
+iv.	The rule says the spacing should be minimum 0.480 um but the actual distance is only 0.215 um. So, the drc error came.
+
+v.	Open the sky130 tech file in vim search for poly.9, the plan is to add a new rule as shown
+
+![image](https://github.com/user-attachments/assets/22352141-50ab-4e65-b2a7-9b23d51bb859)
+
+vi.	The aliases have allpolynonres which is better to use than *poly
+
+![image](https://github.com/user-attachments/assets/0405a2a2-18a0-484f-9706-c4769fb92e2e)
+
+vii.	Updated the same in the second place where we had poly.9 as shown here
+
+![image](https://github.com/user-attachments/assets/fda2acb4-6b88-4a12-82d5-47f9cc85f180)
+
+viii.	After this update in the tech file, load the tech file again (click yes, if it ask again) and run the drc check again. Now the violation is shown as expected below.
+
+![image](https://github.com/user-attachments/assets/301d3611-3c15-4c8b-862f-1b2554d8e57b)
+
+g.	SKY_L7 - Lab exercise to implement poly resistor spacing to diff and tap
+
+i.	Press a and move the curser to a location where you want to place the copied items then press c
+
+![image](https://github.com/user-attachments/assets/e30641f9-e492-4c95-9ae4-7fd2c832b98f)
+
+ii.	Move the curser before pressing c to make sure that they are placed at that location. 
+
+![image](https://github.com/user-attachments/assets/207b68dc-6986-4a7a-b494-397da1afdbce)
 
 
 
