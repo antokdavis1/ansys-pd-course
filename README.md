@@ -1,11 +1,11 @@
-
-This site was built using [GitHub Pages](https://pages.github.com/)
-
-
 [Day 0: Important Links](https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-0-important-links)
-https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-1
-https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-2
-https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-3
+
+[Day 1](https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-1)
+
+[Day 2](https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-2)
+
+[Day 3](https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-3)
+
 
 
 ### <h5 id="header-5_3_4">Day 0: Important Links</h5>
