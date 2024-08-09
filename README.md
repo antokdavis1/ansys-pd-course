@@ -1,6 +1,6 @@
 
 
-
+https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-2
 https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-3
 
 
