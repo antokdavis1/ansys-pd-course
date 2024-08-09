@@ -5,7 +5,7 @@ VSD-IAT (vsdiat.com)
 nickson-jose/vsdstdcelldesign: This repository contains all the information needed to run RTL2GDSII flow using openlane flow. Apart from that, it also contain procedures on how to create a custom LEF file and plugging it into an openlane flow. (github.com)
 
 
-**Day 1:**
+### <h5 id="header-5_3_4">Day 1:</h5>
 
 Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 
@@ -51,7 +51,7 @@ Flop ratio = 1613/14876 = 10.84% (visit: Item number 16)
 17. Opened the timing file checked it in vim ![image](https://github.com/user-attachments/assets/a541f4df-fb56-498d-84a7-79f41a972672) ![image](https://github.com/user-attachments/assets/d8e19a61-0a7f-4438-b2c7-044a9beec05f)
 
 
-**Day 2:**  
+### <h5 id="header-5_3_4">Day 2:</h5> 
 
 **1.	Chip floor planning considerations**
 
@@ -301,7 +301,7 @@ iii.	Even with proper choice of threshold, it is possible to see negative delays
 iv.	Transition time: input slew = slew_high_rise_thr - slew_low_rise_thr & output slew = slew_high_fall_thr - slew_low_fall_thr
 
 
-**Day 3**
+### <h5 id="header-5_3_4">Day 3</h5>
 
 **1.	Labs for ngSPICE simulation for CMOS:**
    
