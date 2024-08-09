@@ -621,6 +621,13 @@ i.	Opened met3.mag
 ![image](https://github.com/user-attachments/assets/3374dbbe-719f-45d0-bfa8-8a53e1c6f484)
 
 
+ii.	After opening the met3.mag click on the drc->DRC Update to see 10 DRC violations in the opened mag file. 
+
+![image](https://github.com/user-attachments/assets/a5f16b22-2f84-48c6-84f4-04ac3abb1e94)
+
+iii.	Opened the google website and link for m3 [Link](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#m3)
+
+
 
 
 
