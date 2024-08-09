@@ -1,4 +1,4 @@
-[Day 0](https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-0-important-links)
+https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-0-important-links
 https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-1
 https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-2
 https://github.com/antokdavis1/ansys-pd-course/blob/main/README.md#day-3
