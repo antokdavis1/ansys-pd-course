@@ -774,7 +774,24 @@ i.	This lab explains how to add a new rule for fast & full variant and invoking 
 
 ### <h5 id="header-5_3_4">Day 4</h5>
 
+1.	SKY130_D4_SK1 - Timing modelling using delay tables
+   
+1.	SKY_L1 - Lab steps to convert grid info to track info
+   
+1.	Open the inverter layout file ![image](https://github.com/user-attachments/assets/f2c0eb46-a7f8-4ad0-9807-e774947804c6)
+2.	Press g to turn on the grid. Or type the command grid on
+3.	Rules: The input and output ports need to be on the intersection of the vertical & horizontal tracks. The width of the standard cell should be in the odd multiples of the track horizontal pitch & height should be odd multiple of the vertical pitch. 
+4.	The track.info is the file containing the information on the track pitch. Open it in the location as shown here ![image](https://github.com/user-attachments/assets/c96400fe-ca93-44fd-bd99-80d11481d254)
+5.	In the above file, the first column is the offset and the second column is the pitch in the track info here, ![image](https://github.com/user-attachments/assets/85c4ea18-ef55-458a-919c-d76587fcedcd)
+6.	The grid is set to the track according to the command in the image ![image](https://github.com/user-attachments/assets/b2b3354b-3acb-40a8-b94f-aa231fbe35b9)
+7.	The A & Y are in the intersection of the grids now and so the routes can reach them easily. It does not have to be at the middle of the intersection.
 
+   2. 
+
+
+
+
+   
 
 
 
