@@ -711,14 +711,68 @@ ii.	Move the curser before pressing c to make sure that they are placed at that 
 
 ![image](https://github.com/user-attachments/assets/207b68dc-6986-4a7a-b494-397da1afdbce)
 
+iii.	To delete a selection, select by s or a, and type delete command. Example with selection s and delete is shown here 
+
+![image](https://github.com/user-attachments/assets/4c8f0636-0e55-4874-830e-fec98dca7184)
+
+iv.	An example with selection by a for all and delete command is shown here 
+
+![image](https://github.com/user-attachments/assets/3d43fe0b-3e75-4aad-b36f-a33a6e0b4f72)
+![image](https://github.com/user-attachments/assets/330d8378-6da8-4f9b-a341-06af75a613de)
+
+v.	Added a new layer by clicking mouse center 
+
+![image](https://github.com/user-attachments/assets/d48be2dc-f9bb-4a59-856b-0b8c3559e610)
+
+vi.	It can also be done by selecting the layer and pressing button p as shown here 
+
+![image](https://github.com/user-attachments/assets/c280478e-e0a8-4f77-ae9c-32f7ca8d8244)
 
 
+vii.	Total drc gone to 46 now, also drc why helps in identifying the drc violations, 
+
+![image](https://github.com/user-attachments/assets/dbaf06a4-f6e7-4082-81a2-ecce79462b75)
+
+h.	SKY_L8 - Lab challenge exercise to describe DRC error as geometrical construct
+
+i.	Vendor DRC rules are placed in the sky130A.tech file 
+
+![image](https://github.com/user-attachments/assets/8cda23a9-ad47-48ae-b4a7-035a3d502386)
+
+ii.	The rules are defined in the website. As an example deepnwell must be enclosed by the nwell by atleast 0.400 um. Similarly the missing rules can be added to the techfile 
+
+![image](https://github.com/user-attachments/assets/2ce3a183-b7b3-4a6b-ac1e-e0ef906df785)
+
+iii.	Load nwell.mag to see the nwell related drc studies 
+
+![image](https://github.com/user-attachments/assets/27d54a95-cc77-4a52-ba47-89d71ef9ec27)
+
+iv.	The cifmaxwidth rule is here in the techfile. 
+
+![image](https://github.com/user-attachments/assets/6a9a0897-0407-4a88-bcee-95c3cdcb01f3)
+
+v.	The drc why command tells in the layout for this above example 
+
+![image](https://github.com/user-attachments/assets/380ab76c-3f41-4648-997e-ba24fab90565)
+
+vi.	To see the drc clearly use the commands in the window 
+
+![image](https://github.com/user-attachments/assets/33d6ba28-5fbb-4b9e-9f05-e9782abfa32c)
 
 
+vii.	To avoid the magic slowing down, use the edge based rules as much as possible during the design.
+
+viii.	Fast and full variant options. Fast variant checks the metal layers and in full even the layers below metal layers and everything is checked. 
+
+![image](https://github.com/user-attachments/assets/1951bdde-ec4c-4097-adef-90b2e28da1d2)
 
 
+i.	SKY_L9 - Lab challenge to find missing or incorrect rules and fix them
+
+i.	This lab explains how to add a new rule for fast & full variant and invoking that through the command line for fast/full variant. Also the rule is implemented as a rule for edge for fast checking. 
 
 
+### <h5 id="header-5_3_4">Day 4</h5>
 
 
 
