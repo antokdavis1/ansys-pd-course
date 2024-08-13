@@ -776,17 +776,54 @@ i.	This lab explains how to add a new rule for fast & full variant and invoking 
 
 1.	SKY130_D4_SK1 - Timing modelling using delay tables
    
-1.	SKY_L1 - Lab steps to convert grid info to track info
+a.	SKY_L1 - Lab steps to convert grid info to track info
    
-1.	Open the inverter layout file ![image](https://github.com/user-attachments/assets/f2c0eb46-a7f8-4ad0-9807-e774947804c6)
-2.	Press g to turn on the grid. Or type the command grid on
-3.	Rules: The input and output ports need to be on the intersection of the vertical & horizontal tracks. The width of the standard cell should be in the odd multiples of the track horizontal pitch & height should be odd multiple of the vertical pitch. 
-4.	The track.info is the file containing the information on the track pitch. Open it in the location as shown here ![image](https://github.com/user-attachments/assets/c96400fe-ca93-44fd-bd99-80d11481d254)
-5.	In the above file, the first column is the offset and the second column is the pitch in the track info here, ![image](https://github.com/user-attachments/assets/85c4ea18-ef55-458a-919c-d76587fcedcd)
-6.	The grid is set to the track according to the command in the image ![image](https://github.com/user-attachments/assets/b2b3354b-3acb-40a8-b94f-aa231fbe35b9)
-7.	The A & Y are in the intersection of the grids now and so the routes can reach them easily. It does not have to be at the middle of the intersection.
+i.	Open the inverter layout file ![image](https://github.com/user-attachments/assets/f2c0eb46-a7f8-4ad0-9807-e774947804c6)
 
-   2. 
+ii.	Press g to turn on the grid. Or type the command grid on
+
+iii.	Rules: The input and output ports need to be on the intersection of the vertical & horizontal tracks. The width of the standard cell should be in the odd multiples of the track horizontal pitch & height should be odd multiple of the vertical pitch. 
+
+iv.	The track.info is the file containing the information on the track pitch. Open it in the location as shown here ![image](https://github.com/user-attachments/assets/c96400fe-ca93-44fd-bd99-80d11481d254)
+v.	In the above file, the first column is the offset and the second column is the pitch in the track info here, ![image](https://github.com/user-attachments/assets/85c4ea18-ef55-458a-919c-d76587fcedcd)
+vi.	The grid is set to the track according to the command in the image ![image](https://github.com/user-attachments/assets/b2b3354b-3acb-40a8-b94f-aa231fbe35b9)
+vii.	The A & Y are in the intersection of the grids now and so the routes can reach them easily. It does not have to be at the middle of the intersection.
+
+   b. SKY_L2 - Lab steps to convert magic layout to std cell LEF
+      i.	The port (pin) here is added by adding Text and enable the Port ![image](https://github.com/user-attachments/assets/8ef412b0-1e88-4f7f-a105-52ba4da9750f)
+
+      ii.	The Port number is used while generating the tech file, it will be used in the order of preferences. Smaller numbers with higher preferences ![image](https://github.com/user-attachments/assets/036b3421-db10-4102-9e9a-44f42059e827)
+            
+        iii.	Set the port definition, like what the port means is done through the command line as shown here ![image](https://github.com/user-attachments/assets/96a4551c-d738-41c3-a01a-a51f162eb0fe)
+            
+iv.	The mag file is saved before generating the lef file since the lef file will be generated with the name of the mag file ![image](https://github.com/user-attachments/assets/81bb592e-3590-4c27-86ce-20db2e900138) ![image](https://github.com/user-attachments/assets/db9e545d-efea-42fc-8823-aeacf450d59e)
+
+v.	The command lef write will generate a lef file with the same name and extension .lef
+
+![image](https://github.com/user-attachments/assets/2118ba0f-deb7-4b1c-a31d-ef2ae01d91f3)
+![image](https://github.com/user-attachments/assets/ddf393f2-816d-419c-b6b2-e8fa49775ebd)
+
+VI.	The lef file can be opened in vim and seen that the first pin is written with the number 0, then 1 etc., 
+
+![image](https://github.com/user-attachments/assets/7497ddbb-1d44-4502-9a57-9793fd458166)
+
+VII.	The plan is to plug this inverter lef file into the picorv design flow.
+
+c)	SKY_L3 - Introduction to timing libs and steps to include new cell in synthesis
+
+I.	Copy the lef file to the picorv32 run folder, 
+
+![image](https://github.com/user-attachments/assets/79201b41-d89c-42df-81a6-af0194a80f12)
+
+
+
+
+
+
+
+
+
+
 
 
 
