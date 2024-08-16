@@ -996,17 +996,7 @@ IX.	Now run the command for floorplan run_floorplan
 
 
 
-
-if { [info exist ::env(EXTRA_LEFS)] } {
-        if { [info exist ::env(MACRO_PLACEMENT_CFG)] } {
-            file copy -force $::env(MACRO_PLACEMENT_CFG) $::env(placement_tmpfiles)/macro_placement.cfg
-            manual_macro_placement -f
-        } else {
-            global_placement_or
-            basic_macro_placement
-        }
-    }
-  
+ 
 
 
 
