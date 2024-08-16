@@ -813,7 +813,223 @@ c)	SKY_L3 - Introduction to timing libs and steps to include new cell in synthes
 
 I.	Copy the lef file to the picorv32 run folder, 
 
-![image](https://github.com/user-attachments/assets/79201b41-d89c-42df-81a6-af0194a80f12)
+![image](https://github.com/user-attachments/assets/fac477d9-6c22-496b-a9b1-da43407f995c)
+![image](https://github.com/user-attachments/assets/b7ca2d92-1622-490d-9a33-8c66cf50b854)
+
+II.	As part of the course, the std cell is already copied to the library as shown here 
+
+![image](https://github.com/user-attachments/assets/680c2702-3705-4d53-a0ba-dedfead5acc6)
+
+III.	The cell named sky130_vsdinv is the cell that is already copied to the library
+
+![image](https://github.com/user-attachments/assets/2ee8eb2a-7fda-4588-9b0f-58877aec80dc)
+
+IV.	The NOT gate has different leakage power when it is ON and OFF. A corresponds to nmos ON & pmos OFF and !A corresponds to vice-versa. The reason is this: The off-state PMOS transistor typically has higher subthreshold leakage compared to the off-state NMOS transistor because PMOS transistors generally have lower threshold voltages.
+
+![image](https://github.com/user-attachments/assets/4c7e511b-51e4-4b8a-9dd6-495cb91b2361)
+
+V.	Other attributes in the lef file for an inverter is shown here, 
+
+![image](https://github.com/user-attachments/assets/a131b847-4438-425c-9faf-6b696624ceec)
+![image](https://github.com/user-attachments/assets/7e6e1d09-4bea-4fd4-a09e-31e192daa93e)
+![image](https://github.com/user-attachments/assets/7217765d-02db-4f50-882b-22756e0933ca)
+
+VI.	Details of clock = true sample is shown here for a flip flop
+
+![image](https://github.com/user-attachments/assets/380f3f7e-7705-48a2-a274-320076a572bf)
+
+VII.	Opened the typical, slow and fast lef files and checked inside the inverter details. The leakage power, capacitance etc., are different for them. 
+
+![image](https://github.com/user-attachments/assets/5c2786f3-2282-47b0-9963-211e45f11424)
+
+VIII.	Copied all the three files to the folder as shown here
+
+![image](https://github.com/user-attachments/assets/473f4815-5e75-4d75-ac4b-27796021a1e9)
+
+IX.	Now to add our inverter to the design, we need to modify the config.tcl file 
+
+![image](https://github.com/user-attachments/assets/e547f1b3-a92a-4a5e-acf2-9d7f1704656f)
+![image](https://github.com/user-attachments/assets/4b08bfe3-999d-4a05-8193-3c1aac882985)
+
+X.	Copy the additional commands to set the environment variables to add the new lef file as shown in the sample git hub here. Add the fast, slow and typical as per the video.  
+
+![image](https://github.com/user-attachments/assets/0e5f6b47-0d1f-41e0-8101-7ee5b9cd74a8)
+![image](https://github.com/user-attachments/assets/0ff7fba2-7256-4eba-952b-2eb77c4ed89f)
+
+XI.	Now run the docker with the command shown here in the video 
+
+
+![image](https://github.com/user-attachments/assets/28529907-cd7d-444d-be2e-9717a5b581fb)
+
+XII.	Changed the keywords in the config.tcl file as shown here in the image since the others are already deprecated
+
+
+![image](https://github.com/user-attachments/assets/273567a9-7770-44d5-a71d-33d6ec1e4a37)
+
+XIII.	After changing the the config file ran the docker again
+
+
+![image](https://github.com/user-attachments/assets/625db279-8f27-404e-bbd0-233c13edd7aa)
+
+XIV.	Ran the additional two commands to include the lef file into the openLANE flow is used
+
+
+![image](https://github.com/user-attachments/assets/091dba84-6b82-4284-8f23-3cab831066e6)
+
+
+XV.	After this run the command for synthesis run_synthesis 
+
+
+![image](https://github.com/user-attachments/assets/23e8a0b3-2dcb-44f0-a82d-75edd0dfe825)
+
+![image](https://github.com/user-attachments/assets/4c94ad7d-f1b4-4956-a4c3-c2ae72045c80)
+
+XVI.	It seems the sky130_myinv.lef is not part of the design so copying sky130_vsdinv.lef in the same folder to see if any changes are seen after running the design.
+
+
+![image](https://github.com/user-attachments/assets/39e7920f-432b-49e1-a4f6-a0f73977b224)
+
+XVII.	Now the sky130_vsdinv.lef is included to the list 
+
+
+![image](https://github.com/user-attachments/assets/c1084a24-ed8f-4db3-94e9-9f9b8be180c1)
+
+XVIII.	Add the two additional commands now 
+
+
+![image](https://github.com/user-attachments/assets/bc2b8b69-8cdb-4fce-96a9-faac7e911529)
+
+XIX.	The issue is that the above method will NOT work. If we open the file the macro name is still the old. 
+
+
+![image](https://github.com/user-attachments/assets/80cd6b94-5a81-4aaf-a654-a5cc93676f7d)
+
+XX.	 We will have to copy the mag file and write the lef file again with the file name for the mag as sky130_vsdinv.mag 
+
+
+![image](https://github.com/user-attachments/assets/8fac27fd-b3e1-4f93-8644-96d22a4b1524)
+
+XXI.	Now in the merged.lef we can see the sky130_vsdinv.lef 
+
+
+![image](https://github.com/user-attachments/assets/8adc17c2-1ae1-4aa5-a59f-ef834e898962)
+
+d)	SKY_L4 - Introduction to delay tables
+
+I.	Power aware CTS can be implemented with AND gating the clock or ORing the clock. This will make sure that a disable section will not consume dynamic power.
+
+II.	The delay table for each cell is prepared as input slew versus output load as shown here 
+
+
+![image](https://github.com/user-attachments/assets/c4c76ff0-33a1-43d7-ab30-d37267842467)
+
+e)	SKY_L5 - Delay table usage Part 1
+
+I.	For each of the cells (buffer, and, nand, or, xor etc., ) there will be a delay table as shown here. Here the CBUF1 and CBUF2 have different sizes.
+
+
+
+![image](https://github.com/user-attachments/assets/ce2aec41-93e8-4ad8-83b1-b632403a0b9f)
+
+II.	If a value is not in the table, that is interpolated. For example, 60fF is not present in the table, but it will be interpolated if the load is 60fF.
+
+
+![image](https://github.com/user-attachments/assets/167d6ed3-504a-43e3-a831-df2c2789dc0d)
+
+f)	SKY_L6 - Delay table usage Part 2
+
+I.	Latency is the total from starting point to end point. If we ignore the wire delays, the latency from input to all the 4 FF in figure is given as x9’+y15 and since all the latencies are same the skew is 0.
+
+
+![image](https://github.com/user-attachments/assets/5dd47752-4c0c-47e9-a3a4-521ebedeea16)
+
+II.	The skew = 0 is the most preferred design criteria, and so at every level, each node driving the same node is good & identical buffer at the same level is also good.
+
+
+g)	SKY_L7 - Lab steps to configure synthesis settings to fix slack and include vsdinv
+
+
+I.	Open the README file as shown here 
+
+
+![image](https://github.com/user-attachments/assets/c11b677c-82af-46e6-b54e-f86c5939ee60)
+
+![image](https://github.com/user-attachments/assets/3111f93b-347e-44f3-9e2e-7b2dcf6a9c84)
+
+II.	In the synthesis output, the tns is the total negative slack and wns is the worst negative slack. 
+
+
+![image](https://github.com/user-attachments/assets/d490d018-7096-45b3-9fe4-bcaa072e2df5)
+
+III.	In the reports, the timing file has the highest slack at the starting and the lowest at the bottom of the file. 
+
+
+![image](https://github.com/user-attachments/assets/f8ddfbe9-531b-4656-a3d3-5c37917a44ff)
+
+IV.	We checking the changed settings helps to reduce the slack. Before the run slack parameters are as shown here 
+
+
+![image](https://github.com/user-attachments/assets/14ca07a9-dcd1-4721-9d9e-0b08c19b24da)
+
+V.	and the chip area is highlighted here 
+
+
+![image](https://github.com/user-attachments/assets/fce61697-7c7d-4e27-9690-c6b004fa6ec6)
+
+VI.	Now setting the optimization settings to 1 instead of 0 as shown here. Changed some more settings as shown here
+
+
+![image](https://github.com/user-attachments/assets/27849908-1806-4df7-8678-56d0f418bdb2)
+
+VII.	The environment variable setting is like this 
+set ::env(SYNTH_STRATEGY) "DELAY 1" 
+
+
+![image](https://github.com/user-attachments/assets/5a67f76f-0cce-419a-8809-20fd9e662cf0)
+
+VIII.	The above strategy fixed the timing issues at the cost of increased area
+
+IX.	Now run the command for floorplan run_floorplan 
+
+
+![image](https://github.com/user-attachments/assets/aeca24a2-3923-4432-be8e-ea83e3d31113)
+
+
+
+
+if { [info exist ::env(EXTRA_LEFS)] } {
+        if { [info exist ::env(MACRO_PLACEMENT_CFG)] } {
+            file copy -force $::env(MACRO_PLACEMENT_CFG) $::env(placement_tmpfiles)/macro_placement.cfg
+            manual_macro_placement -f
+        } else {
+            global_placement_or
+            basic_macro_placement
+        }
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
