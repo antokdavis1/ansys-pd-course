@@ -1006,8 +1006,7 @@ if { [info exist ::env(EXTRA_LEFS)] } {
             basic_macro_placement
         }
     }
-
-    
+  
 
 
 
