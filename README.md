@@ -995,38 +995,131 @@ IX.	Now run the command for floorplan run_floorplan
 ![image](https://github.com/user-attachments/assets/aeca24a2-3923-4432-be8e-ea83e3d31113)
 
 
+X.	Since we don’t have any macros in the design, instead of run_floorplan we can run the subcommands - init_floorplan, place_io, global_placement_or, tap_decap_or, run_placement
 
- 
+XI.	Now open the placement cell as shown in the figure below
+
+![image](https://github.com/user-attachments/assets/acf62e45-3e99-4666-8c56-ecb016f8b06e)
+
+XII.	By zooming into the floor plan we can see our inverter placed in the cell 
+
+![image](https://github.com/user-attachments/assets/ca01968b-718f-4e4c-beef-68020c0835f4)
+
+XIII.	Type the command expand to see the physical layers 
+
+![image](https://github.com/user-attachments/assets/09fc578b-47d3-454e-9a7d-17e079276b62)
+
+2.	SKY130_D4_SK2 - Timing analysis with ideal clocks using openSTA
+3.	
+a)	SKY_L1 - Setup timing analysis and introduction to flip-flop setup time
+
+I.	The edge triggered FF, can be built with two MUX as shown here, 
+
+![image](https://github.com/user-attachments/assets/bf97536f-6cd1-4d49-b6c4-8f8a9f998443)
+
+II.	The setup time is the time required for the MUX2 to hold the input so that the output settles to the D value.
+
+III.	The combinational delay should be less than T-S where T is the time period and S is the setup time of the capture FF. 
+
+![image](https://github.com/user-attachments/assets/971cd26c-01bd-4542-b6c4-854b136f7b47)
+
+b)	SKY_L2 - Introduction to clock jitter and uncertainty
+
+I.	A PLL generates the clock. Clock can have jitter as shown in the figure
+
+![image](https://github.com/user-attachments/assets/e5f22aed-9093-4d3d-acf4-a9425ba696c6)
+![image](https://github.com/user-attachments/assets/d7db6ced-23d5-4abc-947e-33067ec5b15a)
+
+II.	The jitter is marked as SU (setup uncertainty) in the figure
+
+![image](https://github.com/user-attachments/assets/56d39897-f631-4f79-ab33-df0477d2e511)
+
+III.	The setup uncertainty is measured as from the center of the clock frequency. So it is actually –(SU/2+SU/2) = -SU in the previous case 
+
+![image](https://github.com/user-attachments/assets/af17a8e4-e6d6-452d-8ba6-36eebb9cbc9f)
+
+c)	SKY_L3 - Lab steps to configure OpenSTA for post-synth timing analysis
+
+I.	OpenSTA is similar to Synopsys PrimeTime
+
+II.	Open the sta.conf file as shown in the figure below 
+
+![image](https://github.com/user-attachments/assets/a0fe22db-d676-45aa-a127-b929bc24c365)
+![image](https://github.com/user-attachments/assets/7f3ced33-7bce-4191-ab24-220bba61a804)
+
+III.	The min library is used for hold analysis
+
+IV.	No additional netlist is created as of now. After CTS a new Verilog file will be created. 
+
+![image](https://github.com/user-attachments/assets/23408456-0020-475b-a145-6113e5d67aa5)
+
+V.	Update the details of the file sta.conf content as shown in the video lecture
+
+![image](https://github.com/user-attachments/assets/1255a1ff-b400-4615-87a6-d5b8020c2f80)
+![image](https://github.com/user-attachments/assets/c5edd5e3-b207-4907-9cfb-469c5af2a381)
+![image](https://github.com/user-attachments/assets/264d3b69-554f-4230-a471-2cc3efadab45)
+![image](https://github.com/user-attachments/assets/7dfb5252-5447-4b49-a864-3034bbcb6aeb)
+
+VI.	Open the my_base.sdc file from the extras folder as shown in the figure below
+
+![image](https://github.com/user-attachments/assets/c81af1b1-7f8c-4ca7-b744-6ba184c9e037)
+![image](https://github.com/user-attachments/assets/cf311cd7-ba7d-43af-a5a8-c193dfde533f)
+
+VII.	Make sure that the highlighted items are correct as per the earlier environment variables we had used. The load cap is in fF. Collect the values as shown in the next step. 
+
+![image](https://github.com/user-attachments/assets/f8574070-5667-427f-b627-8e7ad1f213be)
+
+VIII.	Check the capacitance in the typical for an approximate value. The values are slightly different in min, max and typical cases. Below are for typical, fast, and slow in order in pF.
+
+![image](https://github.com/user-attachments/assets/24b025cc-b9d6-4d2b-91d5-5978d6fda3fb)
+![image](https://github.com/user-attachments/assets/6c3cced6-cf6f-4f8e-b0af-81ed40e7179c)
+![image](https://github.com/user-attachments/assets/2c3f4a9f-dcb8-4f47-accf-d213bd0c1bd8)
 
 
+IX.	If we use the Verilog file in the extras folder, we will get the same results as shown in the videos. However, the settings used in the sta file is this now
 
+![image](https://github.com/user-attachments/assets/18ff830c-9330-4a74-8f79-5b90722ab9b6)
 
+X.	The sdc file my_base.sdc, is modified version of base.sdc used by the openlane flow. That file is here, 
 
+![image](https://github.com/user-attachments/assets/ccd86a98-0bdc-4ca5-aff7-22f8a54c98f0)
+![image](https://github.com/user-attachments/assets/b10cbba2-97a5-4c26-a806-1866e8be0ae1)
 
+XI.	The sta is done on the sta.conf file and the inside this file we used my_base.sdc file and other files for running the sta. The sta is run as shown in the figure below 
 
+![image](https://github.com/user-attachments/assets/61661b59-d8af-4582-9a36-7421545d5d2a)
+![image](https://github.com/user-attachments/assets/48cb44ea-fe0b-4bd3-b33f-95d8206c7476)
 
+XII.	If I use the Verilog file in the extras folder, the tns and wns are smaller
 
+![image](https://github.com/user-attachments/assets/dfef0215-d735-40e3-b5bd-fbf9ae0af261)
+![image](https://github.com/user-attachments/assets/2fe1c976-a844-428a-8378-7f2a9db2be68)
 
+d)	SKY_L4 - Lab steps to optimize synthesis to reduce setup violations
 
+I.	Since clock tree synthesis is not done, hold analysis is of no use now.
 
+II.	The cell delay is directly proportional to the input slew and output capacitance/load
 
+III.	To optimize the slack violations, we are checking the current fanout and going to set it to 4 now
 
+![image](https://github.com/user-attachments/assets/1e92b509-17b8-430d-8fb1-420f8943e75b)
 
+IV.	Run the command sta sta.conf in the command line
 
+![image](https://github.com/user-attachments/assets/58c24cce-6584-454e-a24d-28788277236a)
+![image](https://github.com/user-attachments/assets/e8c31b68-00f2-4114-b9ba-9a355b10afc0)
+![image](https://github.com/user-attachments/assets/9bed6e94-a155-4875-a434-340a4464217f)
 
+V.	The design is improved by changing the sizes of the cells. 
 
+VI.	The fanout is very big for certain parts which can be seen here
 
+![image](https://github.com/user-attachments/assets/fee78524-3572-4f08-bc4f-8102766b36d2)
 
+VII.	The net connections can be obtained by typing report_net -connections _00357_ 
 
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/e48d98bb-6159-4728-8fd7-b821b446ac40)
 
 
 
