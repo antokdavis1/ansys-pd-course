@@ -1120,13 +1120,204 @@ VI.	The fanout is very big for certain parts which can be seen here
 VII.	The net connections can be obtained by typing report_net -connections _00357_ 
 
 ![image](https://github.com/user-attachments/assets/e48d98bb-6159-4728-8fd7-b821b446ac40)
+![image](https://github.com/user-attachments/assets/6b227718-f48e-4d53-af02-5c4182624516)
 
+VIII.	In the above place type the command to replace the cell _42093_  replace_cell _42093_ sky130_fd_sc_hd_mux2_2 
 
+![image](https://github.com/user-attachments/assets/82374c16-1e0b-4619-993c-637cbf79dd1f)
 
+IX.	This improved the slack as shown below. Another cell is also sized bigger as shown below. 
 
+![image](https://github.com/user-attachments/assets/27751d33-9112-4fa4-ba3f-690ae1e6c400)
 
+X.	This improved it further as shown below. Also another cell is made bigger as shown below. 
+
+![image](https://github.com/user-attachments/assets/fe79aaec-e797-4ff8-8f51-cd5333321bfa)
 
    
+XI.	This improved it further as shown below. Also, if a particular cell size is not available, it will throw error as shown below. 
+
+![image](https://github.com/user-attachments/assets/eef50a42-e124-4d44-8f85-a377c62ede6c)
+
+XII.	Few more trials gave the below results
+
+![image](https://github.com/user-attachments/assets/08d12f45-213d-4ab2-8d6a-2769a3cbfbef)
+
+![image](https://github.com/user-attachments/assets/0cbe0fe0-8ce2-454a-8608-4766dcd75a8f)
+
+XIII.	The reported tns and wns came down very much with the sizing change.
+
+e)	SKY_L5 - Lab steps to do basic timing ECO
+
+I.	The improvement in the timing paths when we re-size a cell is shown below. In this case, the only change is replace_cell _42093_ sky130_fd_sc_hd_mux2_2 where previously it was using sky130_fd_sc_hd_mux2_1 
+
+![image](https://github.com/user-attachments/assets/9c5206b8-4c6f-4fdb-8b2d-39d11160ca39)
+![image](https://github.com/user-attachments/assets/b4f8e3ff-96bc-4947-8c30-5500b65729bd)
+
+II.	The slack improved from -2.95 to -0.03. The command to verify this particular path is via, report_checks -from NUMBER1 -to NUMBER2 -through CELLNUMBER
+
+III.	The tns and wns also improved as shown below 
+
+![image](https://github.com/user-attachments/assets/ec5ea1c2-cfb6-434f-bbe3-36df93e4d098)
+![image](https://github.com/user-attachments/assets/fdd15f5b-7c29-4452-835c-917728485072)
+
+3.	SKY130_D4_SK3 - Clock tree synthesis TritonCTS and signal integrity
+4.	
+a)	SKY_L1 - Clock tree routing and buffering using H-Tree algorithm
+
+I.	The H tree algorithm is such that the skew in the clock is zero or very close to 0. This is achieved by equal distance/length for all the clock from the starting point to the all the FFs. For this we find out the mid-point of the clock path to all FF from the starting point.
+
+![image](https://github.com/user-attachments/assets/25935419-aa5a-4c72-8d1d-bbdc3a8b0dd5)
+![image](https://github.com/user-attachments/assets/0611a55c-cff8-4eb4-87e3-98c658d0de3d)
+![image](https://github.com/user-attachments/assets/bcbc579a-390d-4434-9934-8330f55f4306)
+
+II.	A similar midpoint strategy is used for other clocks as well 
+
+
+![image](https://github.com/user-attachments/assets/b924b62a-968e-4fda-b970-ca5a19aade93)
+
+
+III.	The wire capacitance and resistance will have RC delays as shown here. This will cause delay. To avoid this issue, we add repeaters. 
+
+
+![image](https://github.com/user-attachments/assets/b45ed0f1-0793-4160-a3f2-aafde7473099)
+
+IV.	The clock repeaters will have equal rise and fall time. This needs not be the case with data-path buffers. The figure shows that repeaters (red buffers) being added to the clock paths. 
+
+
+![image](https://github.com/user-attachments/assets/73c4ebef-b94e-4fbe-ac52-d5e5f8ef3733)
+
+b)	SKY_L2 - Crosstalk and clock net shielding
+
+I.	A clock needs to be shielded to avoid noise coupling. A shielded clock is shown here in the figure 
+
+
+![image](https://github.com/user-attachments/assets/fae7efca-e584-4cf8-a1ee-14869c891429)
+
+II.	Unshielded clock will have two problems – 1. Glitch 2. Delta delay
+
+
+III.	A glitch can erase a memory as shown here 
+
+
+![image](https://github.com/user-attachments/assets/ee25599c-c2ae-48ce-bacf-1b177352b25b)
+![image](https://github.com/user-attachments/assets/f022124f-2baa-4488-88b9-b22df595ee42)
+
+
+IV.	Shielding wires are connected to VDD or GND.
+
+V.	Cross talk introduces delta delay which in turn causes clock skew
+
+
+![image](https://github.com/user-attachments/assets/ae6b0818-5ff3-4011-b064-8e81113f2f23)
+
+
+VI.	If the clock tree is for multi-million chips, the delta delay will be growing exponentially or linearly to a big number.
+
+VII.	Critical nets are shielded to avoid cross talk.
+
+c)	SKY_L3 - Lab steps to run CTS using TritonCTS
+
+I.	The best slack obtained as of now is, 
+
+
+![image](https://github.com/user-attachments/assets/3a456e25-b68e-4adb-b9dc-362560cf3870)
+
+
+II.	Our plan is to write a new Verilog file based on the changes we did and replace the earlier synthesis Verilog file in the location shown here. Also made a backup of the current Verilog file since it will be overwritten.
+
+
+
+![image](https://github.com/user-attachments/assets/873a5a26-9a28-484a-910b-06d5c5209b11)
+
+III.	The write_verilog command writes the current updated netlist as shown in the figure below
+
+
+![image](https://github.com/user-attachments/assets/9e24c7e5-82c1-4cc6-b910-5c75ed9fe602)
+
+IV.	And the file is updated now as shown in the figure file write time
+
+
+![image](https://github.com/user-attachments/assets/2e224e63-e596-4999-b329-caa4aac1b3da)
+
+
+V.	As a verification open the last cell change and open the Verilog file and check if it is reflected there 
+
+
+![image](https://github.com/user-attachments/assets/9363b937-a12d-4f98-8517-d6d61a962e1a)
+![image](https://github.com/user-attachments/assets/ae4d84fd-c183-48c1-8ce7-45d82a99abaa)
+
+
+VI.	Load the same design by the command prep -design <design_name> -tag <desired_tag> where the <desired_tag> is the folder name where we updated the Verilog file. 
+
+
+![image](https://github.com/user-attachments/assets/83240b89-95fa-46f8-9838-9f065e01fa09)
+
+VII.	Now follow the micro-commands and run the saved Verilog file - init_floorplan, place_io, global_placement_or, tap_decap_or, run_power_grid_generation, run_placement. The design area has gone up now and the slack became positive. 
+
+
+![image](https://github.com/user-attachments/assets/ca1e321d-1b5a-4dd7-8136-b6941420d509)
+![image](https://github.com/user-attachments/assets/f9d5f3a0-6864-43a7-a206-1f88ce7a69e1)
+
+VIII.	Now run the cts. The CTS configuration is in the file 
+
+
+![image](https://github.com/user-attachments/assets/cdfcf0cb-68ba-4a7c-b34e-c0c6a556dad2)
+![image](https://github.com/user-attachments/assets/30168008-8d11-42fe-a130-615ec4593373)
+
+IX.	Type the command run_cts for this 
+
+
+![image](https://github.com/user-attachments/assets/f8fab798-3e89-4a9b-9793-30a913840ca7)
+![image](https://github.com/user-attachments/assets/e356eb12-9da7-40c2-89b7-d72db00882c5)
+
+
+X.	The run_cts is completed and a new Verilog file with additional cts buffers added are created in the same folder 
+
+
+![image](https://github.com/user-attachments/assets/43a2c14c-88a1-4554-bb34-c0f29d4c9a32)
+![image](https://github.com/user-attachments/assets/5e892c8c-6a58-4c32-8e54-d716905ce506)
+
+
+d)	SKY_L4 - Lab steps to verify CTS runs
+
+I.	For each of the commands, the micro commands can be seen here 
+
+
+![image](https://github.com/user-attachments/assets/1a43b0dd-58f4-40aa-94d0-03e685f59433)
+
+II.	All the openroad commands are here – flooplanning, placement, cts, optimization, global routing.
+
+
+![image](https://github.com/user-attachments/assets/99913975-6309-4ea6-a15c-3b8e0fd10c4b)
+![image](https://github.com/user-attachments/assets/c1519eba-c2dc-4148-97cb-e62183803ba3)
+
+
+III.	The file or_cts.tcl has the below items, 
+
+
+![image](https://github.com/user-attachments/assets/df33e5bf-34cb-438b-a42d-47ac20899317)
+![image](https://github.com/user-attachments/assets/55ff5a83-b753-4a5e-8371-8f19398767bf)
+
+IV.	Type the command echo ::env(LIB_CTS) to see the folder location where the cts results are stored.
+
+
+![image](https://github.com/user-attachments/assets/fbabb3d7-b701-4e4c-93c5-85dd6278c445)
+
+
+4.	SKY130_D4_SK4 - Timing analysis with real clocks using openSTA
+   
+a)	SKY_L1 - Setup timing analysis using real clocks
+
+
+
+
+
+
+
+
+
+
 
 
 
