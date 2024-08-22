@@ -1309,6 +1309,69 @@ IV.	Type the command echo ::env(LIB_CTS) to see the folder location where the ct
    
 a)	SKY_L1 - Setup timing analysis using real clocks
 
+I.	The timing equations change when the real clocks are used which will introduce buffers and their delays together with the clock-path delays
+
+![image](https://github.com/user-attachments/assets/eedaee01-529a-4553-bfb0-137c39275225)
+![image](https://github.com/user-attachments/assets/fbd1a783-4add-4850-8947-da8461e35d1f)
+
+II.	The skew will be difference in the clock delays
+
+![image](https://github.com/user-attachments/assets/cfbf3ebd-45f3-4ab3-9a1d-5267381b32b2)
+![image](https://github.com/user-attachments/assets/fb4f6511-8826-4ebe-b004-7c6670cf666f)
+
+III.	The term slack is defined as the difference in the data required time and data arrival time. The slack should be positive or zero for the circuit to operate at the clock frequency used for design.
+
+![image](https://github.com/user-attachments/assets/a4076853-1ca5-4b62-8ae8-2a8e71f38f5f)
+
+
+IV.	The hold time is the time the data needs to be stable after the clock arrived. A D flipflop is built with two MUXes inside, and MUX2 delay determines the hold time. The MUX2 delay is the time taken by the capture flop to send the data out and the capture flop does not expect any new data coming in during this time. So, during this time the input should be stable which determines the hold time.
+
+![image](https://github.com/user-attachments/assets/1d9954df-9fbd-4309-80d8-70fb19fbebda)
+
+V.	The hold time analysis is shown in the image below.
+
+![image](https://github.com/user-attachments/assets/de4de663-75a5-4dfa-ae51-41e944d7e5c3)
+![image](https://github.com/user-attachments/assets/c8978403-8e70-44fa-ac49-78e84a36fa2f)
+![image](https://github.com/user-attachments/assets/03edf76d-4b6d-4583-b250-6c1bf945a208)
+
+VI.	In hold time analysis, the same clock edge is used since we are interested in the change in the output of launch clock stable while capture clock is outputing the data. So the uncertainty or the jitter is low nilll incase of hold time analysis. However, as  worst case scenario, we are taking a very small jitter (50ps) compared to set up time analysis (90-100 ps). 
+
+![image](https://github.com/user-attachments/assets/6b24c13e-37d5-4911-8085-522d39d3cff7)
+
+VII.	In this case, the slack is data arrival time – data required time. The HU is the hold uncertainity.
+
+![image](https://github.com/user-attachments/assets/212a38b2-596d-4a02-8182-957c62062ff6)
+
+VIII.	The delta1 and delta2 consitutes the components shown in the figures
+
+![image](https://github.com/user-attachments/assets/c4790b39-d7e0-4a55-8011-dc10c7d151da)
+![image](https://github.com/user-attachments/assets/4a260bb1-0378-469c-ba18-8015a9134af0)
+
+IX.	Final setup equation is given in the figure 
+
+![image](https://github.com/user-attachments/assets/4468d6ad-a9bd-4997-9603-7f17b64e30e8)
+
+X.	Final hold equation is given in the figure
+
+![image](https://github.com/user-attachments/assets/365ad7e6-9d27-408f-9289-e92ae0b75b5a)
+
+b)	SKY_L3 - Lab steps to analyze timing with real clocks using OpenSTA
+
+I.	Openroad has opensta integrated into it.
+
+II.	Openlane has openroad inside it. And so we can enter into openroad as shown here. The advantage here is that we can use all the environmental variables if we invoke the sta from here.
+
+
+![image](https://github.com/user-attachments/assets/19010c24-6818-48d2-b492-ea3641fc6cef)
+
+III.	This works with db, and the db can be reloaded later. Creating the db is a onetime process. It is created from lef and def files. The first step is to read the lef as shown in the figure below
+
+
+
+
+
+
+
 
 
 
