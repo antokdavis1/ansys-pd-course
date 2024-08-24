@@ -1370,10 +1370,110 @@ II.	Openlane has openroad inside it. And so we can enter into openroad as shown 
 
 III.	This works with db, and the db can be reloaded later. Creating the db is a onetime process. It is created from lef and def files. The first step is to read the lef as shown in the figure below
 
+![image](https://github.com/user-attachments/assets/816ce63a-ca28-4b4c-854e-aa4ab48622ed)
+
+IV.	Next step is to read the def file which is located in the cts folder. This is created after the run_cts command. 
+
+![image](https://github.com/user-attachments/assets/8e254b28-9312-43a9-b051-eb757364baac)
+
+V.	Type in the command for read_def as shown here to read the def now
+
+![image](https://github.com/user-attachments/assets/edfe23ef-4d8d-4ae4-a44e-e390f09222cd)
+
+VI.	Now we can write the db as shown here
+
+![image](https://github.com/user-attachments/assets/53e23bc8-650e-4cda-8f5f-53fd0ebe3b2f)
+
+VII.	The db is created in the parent folder location as shown here
+
+![image](https://github.com/user-attachments/assets/1105f4c8-179d-485e-8433-d3617c15b446)
+
+VIII.	Now read the db to proceed 
+
+![image](https://github.com/user-attachments/assets/63167f9f-a4b5-4346-a180-25413c9a4198)
+
+IX.	Now read the Verilog file that was created after the cts
+
+![image](https://github.com/user-attachments/assets/61e5dd0e-2e08-4e7b-8178-779f0bc0b4de)
+![image](https://github.com/user-attachments/assets/22843f5d-58e3-4347-8b94-ff8567d5537c)
+
+X.	Now run the command for max and min liberty files
+
+![image](https://github.com/user-attachments/assets/11902fac-abf4-4052-adf4-2557a42fbc6c)
+
+XI.	Now read the sdc file as shown here my_base.sdc
+
+![image](https://github.com/user-attachments/assets/717937c7-bfdc-4e54-af93-deecdd1c33ed)
+
+XII.	Set the clocks 
+
+![image](https://github.com/user-attachments/assets/e4e8659b-7d09-4521-8aea-f2ed0d564b89)
+
+XIII.	Now run the report_checks command as shown in the figure below
+
+![image](https://github.com/user-attachments/assets/f93904d9-4e66-40e1-8673-1670236a7b5d)
+![image](https://github.com/user-attachments/assets/dfb11279-9242-499e-a82a-c86ec3452e79)
 
 
+XIV.	The hold violation needs to be fixed, otherwise the chip is of no use. For setup violation we can reduce the frequency and make the chip work. 
+
+c)	SKY_L4 - Lab steps to execute OpenSTA with right timing libraries and CTS assignment
+
+I.	The previous analysis was done for min and max and so the setup and hold violations are not correct. We need to do the analysis for typical files. For this exit the openroad and restart and use the typical file as shown in the figure
 
 
+![image](https://github.com/user-attachments/assets/9fd1c367-35de-4d5e-a0c8-062c68b62e11)
+
+II.	Now link run the report_checks as shown in the figure
+
+![image](https://github.com/user-attachments/assets/c26d790a-2177-4e8f-a777-9cc08873ce22)
+![image](https://github.com/user-attachments/assets/92f6d016-77cc-4d4d-9a15-bde158892bc4)
+
+III.	Now the hold and setup slacks are positive. For typical corners, hold and setup are good. For min and max, currently not supported by openlane. This needs to be done separately.
+
+IV.	Check the buffer list for clocks 
+
+![image](https://github.com/user-attachments/assets/5fa23d3e-61bf-4037-8a40-be13e4ca863c)
+
+V.	The clock buffers will be taken based on the list shown here, from left to right (smallest to largest). The buffers will be tried and replaced until the slack is positive. The smallest sized buffer with the positive slack is chosen as the optimum choice between size and timing. 
+
+VI.	Set the current folder for the environment variable ::env(CURRENT_DEF)   designs/pircorv32a/runs/<remaining_path>
+
+d)	SKY_L5 - Lab steps to observe impact of bigger CTS buffers on setup and hold timing
+
+I.	First exit the openroad by typing exit which get us into the openlane flow. The current def file needs to be updated to the placement def file before running the cts. Currently it is pointing to the cts def file.
+
+![image](https://github.com/user-attachments/assets/a89fbe11-6c8e-4d8c-bc67-9217897effd0)
+
+II.	Now let us run the cts with and without the clock buffer sized 1. Initial setup slack is 5.6219 & hold slack is 0.0633. 
+
+
+![image](https://github.com/user-attachments/assets/0f139b2e-954c-4e9b-8066-830a2d360105)
+
+
+III.	Now let us run_cts. 
+
+![image](https://github.com/user-attachments/assets/dee7090a-01f1-4254-9fa5-18ccc21db781)
+![image](https://github.com/user-attachments/assets/c2fefcdc-de51-4204-ba88-8d8c0da85862)
+
+
+IV.	Now let us see if the clock buffer is bigger in size and how much the slack improved. First get into openroad. The commands are repeated as earlier as shown here
+
+![image](https://github.com/user-attachments/assets/54bfb39e-64d9-4f04-b21f-fc16eea04179)
+![image](https://github.com/user-attachments/assets/e4640b2c-0bd0-40d6-86a4-c35670bb70e7)
+![image](https://github.com/user-attachments/assets/0c5763d1-1686-4e79-a096-65676ab7f798)
+![image](https://github.com/user-attachments/assets/23a3c35f-a079-46cb-b065-3ca9914a149a)
+
+
+V.	As shown above both the hold and setup slack are improved at the cost higher area by the bigger clock buffer (clkbuf_2)
+
+VI.	The clock skew can be checked now in the openroad flow 
+
+![image](https://github.com/user-attachments/assets/a3c3d425-3f14-4470-b9c4-38f62e9e6a9a)
+
+VII.	Now insert back the clkbuf_1 as shown here
+
+![image](https://github.com/user-attachments/assets/e6b82b14-3cd7-47ca-9729-a7e8d817ed8d)
 
 
 
