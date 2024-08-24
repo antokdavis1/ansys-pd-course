@@ -1477,10 +1477,7 @@ VII.	Now insert back the clkbuf_1 as shown here
 ![image](https://github.com/user-attachments/assets/e6b82b14-3cd7-47ca-9729-a7e8d817ed8d)
 
 
-
-### <h5 id="header-5_3_4">Day 5: Important Links</h5>
-
-
+### <h5 id="header-5_3_4">Day 5</h5>
 
 
 
