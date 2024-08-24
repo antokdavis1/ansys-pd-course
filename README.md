@@ -1481,12 +1481,125 @@ VII.	Now insert back the clkbuf_1 as shown here
 ### <h5 id="header-5_3_4">Day 5</h5>
 
 
+1.	SKY130_D5_SK1 - Routing and design rule check (DRC)
+
+   
+a)	SKY_L1 - Introduction to Maze Routing Lee’s algorithm
+
+I.	One of the famous routing algorithms for routing is called as Maze algorithm developed by Lee in 1961. 
+
+II.	The first step in this algorithm is to create a mesh and label the grids from the source (s) to target (T) pins as shown here 
+
+![image](https://github.com/user-attachments/assets/4056e940-2b97-437a-b212-4b932f92b520)
+
+b)	SKY_L2 – Lee’s Algorithm conclusion
+
+I.	The algorithm progresses by adding numbers as shown in the figure below. The components already placed are omitted.
+
+![image](https://github.com/user-attachments/assets/65d83779-9b87-4030-bb8f-7c929a319a27)
+
+II.	There are multiple paths available for this route as shown in the figures
+
+![image](https://github.com/user-attachments/assets/ef48fbf5-44ce-4eb1-be2c-3834f58b0315)
+![image](https://github.com/user-attachments/assets/cf1d607d-6363-402d-bc3f-0e2722a460e7)
+
+III.	Routing engine prefers the route with minimum bends. In the above example, the second one is preferred by the routing engine since it has only one bend.
+
+IV.	Other popular algorithms are line search algorithm and Steiner Tree algorithm.
+
+c)	SKY_L3 - Design Rule Check
+
+I.	Some of the popular DRCs for routing are minimum width, minimum wire pitch, wire spacing, signal shorts, minimum via width, via spacing
+
+II.	The signal short is a potential problem in IC design which is shown in the figure below
+
+![image](https://github.com/user-attachments/assets/2d5c71e2-1066-49be-ac42-04bd186d9d33)
+
+III.	The minimum via width is shown in the figure below
+
+![image](https://github.com/user-attachments/assets/607f6991-01a6-4303-bd74-301367c6fa4f)
+
+IV.	Next step is parasitic extraction, the parasitics are shown in the figure below. Parasitics are stored in SPEF format.
+
+![image](https://github.com/user-attachments/assets/a2a4eab8-5bfc-4ebf-a4dd-042c0e7b4156)
+
+2.	SKY130_D5_SK2 - Power Distribution Network and routing
+   
+a)	SKY_L1 - Lab steps to build power distribution network
+
+I.	Run the command run_routing
+
+![image](https://github.com/user-attachments/assets/c7b123b5-3fa6-483c-8813-a30764b2e0ac)
+![image](https://github.com/user-attachments/assets/f2450fe6-382e-4127-b5a6-f737b92910cb)
+![image](https://github.com/user-attachments/assets/a828f672-97d7-4a73-8d16-9997fdd1828f)
+![image](https://github.com/user-attachments/assets/710c5952-1bb3-48af-a7be-4534418fce5d)
+
+II.	The def file is opened from the magic 
+
+![image](https://github.com/user-attachments/assets/8808abeb-b1a7-4ac2-98f0-d79941c0d684)
+![image](https://github.com/user-attachments/assets/7681b50f-0719-4f34-a82b-b305c881fb58)
+
+III.	Opened the spef file and checked the timing report and found that the hold and set up slacks are positive 
+
+![image](https://github.com/user-attachments/assets/5b55fe26-caae-47de-b5d1-bd7c3e25354f)
+![image](https://github.com/user-attachments/assets/bfe0f39d-9c24-4f2f-8039-39a4d45e5417)
+![image](https://github.com/user-attachments/assets/306c3988-293d-4ab3-bdbb-25686f712537)
 
 
+IV.	Checked the spef file
+
+![image](https://github.com/user-attachments/assets/220c8065-b9bb-466f-8e74-9b9e6b7afe85)
+
+b)	SKY_L2 - Lab steps from power straps to std cell power
+
+I.	The diagram shows the power planning figure
+
+![image](https://github.com/user-attachments/assets/a17f7643-51ea-4ad9-8c94-b62a04cf13ac)
+
+c)	SKY_L3 - Basics of global and detail routing and configure TritonRoute
+
+I.	Different routing strategies are available in the READM.md file as shown here
+
+![image](https://github.com/user-attachments/assets/afc5ec4b-0c91-4d0f-bed3-a7983e740201)
 
 
+II.	The above strategies are a trade-off and need to be carefully chosen.
 
+III.	The current strategy used for routing is can be checked
 
+![image](https://github.com/user-attachments/assets/fe7f9357-73ae-4b42-9c88-441353f3b5ef)
+
+IV.	The usual routing method is first fast routing and then detailed routing
+
+![image](https://github.com/user-attachments/assets/919f3230-ea46-4c9f-a16b-713a123bda42)
+
+V.	Some of the features of the Triton Routing engine is 
+
+![image](https://github.com/user-attachments/assets/5c6e5047-f357-4a50-8d97-3200644618d7)
+
+3.	SKY130_D5_SK3 - TritonRoute Features
+   
+a)	SKY_L1 - TritonRoute feature 1 - Honors pre-processed route guides
+
+I.	Preprocessed route guides 
+
+![image](https://github.com/user-attachments/assets/47fef98a-d250-44a6-b95d-dbb263ed1b25)
+
+II.	The interguide connectivity is given as
+
+![image](https://github.com/user-attachments/assets/be1cc920-ffc6-4c1d-9411-99ed1cb3aca0)
+
+b)	SKY_L2 - TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing
+
+I.	Intra-layer and interlayer routing 
+
+![image](https://github.com/user-attachments/assets/c94c7af3-8fc1-4566-a34e-6ea1fd93100a)
+
+c)	SKY_L3 - TritonRoute method to handle connectivity
+
+I.	The TritonRoute inputs, output, and constraints are
+
+![image](https://github.com/user-attachments/assets/c2348385-1a4e-48f5-a9a4-058eb5b61857)
 
 
 
